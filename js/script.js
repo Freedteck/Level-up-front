@@ -1,6 +1,6 @@
 const noti = document.querySelector('.notification')
 const about = document.querySelector('.about')
-const aboutExpand = document.querySelector('.about-expand')
+const aboutExpand = about.querySelector('.about-expand')
 const arrow = document.querySelector('.arrow svg')
 const items = document.querySelector('.items')
 const notiExpand = document.querySelector('.noti-expand')
@@ -14,6 +14,33 @@ const btnMore = document.querySelectorAll('.btn-more')
 const image = document.querySelectorAll('.image')
 const cancelBtn = document.querySelector('.cancel')
 const info = document.querySelector('.info')
+const menuItem = document.querySelectorAll(`[role="menuitem"]`)
+const tabIndex = document.querySelectorAll(`[tabindex="0"]`)
+const allMenuItem = document.querySelectorAll('.about-expand *')
+
+
+allMenuItem.forEach(item => {
+  item.style.display = 'none'
+})
+function openMenu() {
+  aboutExpand.classList.toggle('show')
+  about.ariaExpanded = 'true'
+}
+
+function closeMenu() {
+  about.ariaExpanded = 'false'
+  aboutExpand.classList.remove('show')
+}
+
+function toggleMenu() {
+  const expanded = about.ariaExpanded === 'true'
+  if (expanded) {
+    closeMenu()
+  } else {
+    openMenu()
+  }
+}
+
 
 cancelBtn.addEventListener('click', () => {
   info.style.display = 'none'
@@ -34,9 +61,58 @@ cards.forEach((card, index) => {
   })
 })
 
+let menuIndex = -1
 about.addEventListener('click', () => {
-  aboutExpand.classList.toggle('show')
+  toggleMenu()
+  about.blur()
 })
+
+about.addEventListener('keyup', (e) => {
+  if (e.key === 'Enter') {
+    toggleMenu()
+    menuItem.item(0).focus()
+    menuIndex = 0
+  }
+})
+
+let winIndex = -1
+
+// Select elements with tabIndex="0" and style.display not equal to "none"
+const elementsWithTabIndex = document.querySelectorAll('[tabindex="0"]:not([style*="display: none"])');
+
+// Now, elementsWithTabIndex is a NodeList containing the desired elements
+
+function keys() {
+  window.addEventListener('keyup', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' && about.ariaExpanded === 'true') {
+      if (menuIndex === menuItem.length - 1) {
+        menuIndex = -1
+      }
+      menuIndex++
+      menuItem[menuIndex].focus()
+    } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight' && about.ariaExpanded === 'false') {
+      winIndex++
+
+      elementsWithTabIndex[winIndex].focus()
+      
+    }
+
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' && about.ariaExpanded === 'true') {
+      if (menuIndex === 0) {
+        menuIndex = menuItem.length
+      }
+      menuIndex--
+      console.log(menuIndex);
+      menuItem[menuIndex].focus()
+      // menuIndex--
+    }
+    if (e.key === 'Escape' && about.ariaExpanded === 'true') {
+      closeMenu()
+    }
+  })
+}
+keys()
+
 
 arrow.classList.add('up')
 arrow.addEventListener('click', () => {
@@ -63,6 +139,7 @@ arrow.addEventListener('click', () => {
 
 noti.addEventListener('click', () => {
   notiExpand.classList.toggle('show')
+  noti.blur()
 })
 
 let index = 0
@@ -118,8 +195,9 @@ radio.forEach(radios => {
 })
 
 document.addEventListener('click', (e) => {
-  if (e.target !== about && !about.contains(e.target)) {
+  if (e.target !== about && about.ariaExpanded === 'true') {
     aboutExpand.classList.remove('show')
+    menuIndex = -1
   }
   if (e.target !== noti && !noti.contains(e.target)) {
     notiExpand.classList.remove('show')

@@ -78,7 +78,7 @@
               </g>
             </svg>
           </div>
-          <div class="search-bar">
+          <div class="search-bar" tabindex="0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="13"
@@ -101,7 +101,14 @@
             />
           </div>
           <div class="profile">
-            <div class="notification">
+            <div
+              class="notification"
+              id="notification"
+              tabindex="0"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="noti-menu"
+            >
               <svg
                 width="20"
                 height="20"
@@ -117,14 +124,21 @@
                 />
               </svg>
             </div>
-            <div class="about">
+            <div
+              class="about"
+              tabindex="0"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="profile-menu"
+              id="profile"
+            >
               <p class="desktop">Davii Collections</p>
               <p class="short">DC</p>
             </div>
           </div>
         </nav>
       </header>
-      <div class="noti-expand">
+      <div class="noti-expand" id="noti-menu" aria-labelledby="notification">
         <div class="top-noti">
           <h3>Alert</h3>
           <div class="right-noti">
@@ -176,9 +190,14 @@
           <p>Alerts about your store and account will show here</p>
         </div>
       </div>
-      <div class="about-expand">
+      <div
+        class="about-expand"
+        id="profile-menu"
+        role="menu"
+        aria-labelledby="profile"
+      >
         <div class="top-abt">
-          <div class="prof">
+          <div class="prof" role="menuitem" tabindex="0">
             <div class="left-prof">
               <p class="small">DC</p>
               <p>Davii Collections</p>
@@ -199,7 +218,7 @@
               </svg>
             </div>
           </div>
-          <div class="store">
+          <div class="store" role="menuitem" tabindex="0">
             <svg
               width="20"
               height="20"
@@ -219,11 +238,11 @@
         </div>
         <hr />
         <div class="mid-abt">
-          <p>Help Center</p>
-          <p>Changelog</p>
-          <p>Community forums</p>
-          <p>Hire a Shopify Partner</p>
-          <p>Keyboard shortcuts</p>
+          <p role="menuitem" tabindex="0">Help Center</p>
+          <p role="menuitem" tabindex="0">Changelog</p>
+          <p role="menuitem" tabindex="0">Community forums</p>
+          <p role="menuitem" tabindex="0">Hire a Shopify Partner</p>
+          <p role="menuitem" tabindex="0">Keyboard shortcuts</p>
         </div>
         <hr />
         <div class="bottom-abt">
@@ -231,10 +250,10 @@
             <p>David Micheal</p>
             <p>davidmicheal@gmail.com</p>
           </div>
-          <p>Manage account</p>
-          <p>Log out</p>
-          <p>Hire a Shopify Partner</p>
-          <p>Keyboard shortcuts</p>
+          <p role="menuitem" tabindex="0">Manage account</p>
+          <p role="menuitem" tabindex="0">Log out</p>
+          <p role="menuitem" tabindex="0">Hire a Shopify Partner</p>
+          <p role="menuitem" tabindex="0">Keyboard shortcuts</p>
         </div>
       </div>
       <main>
@@ -265,7 +284,7 @@
           <div class="top-elem">
             <div class="top-sect">
               <h2>Setup guide</h2>
-              <div class="arrow">
+              <div class="arrow" tabindex="0">
                 <svg
                   width="20"
                   height="20"
@@ -296,8 +315,8 @@
             </div>
           </div>
           <div class="items">
-            <div class="card active">
-              <div class="radio">
+            <div class="card active" tabindex="0">
+              <div class="radio" tabindex="0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -325,7 +344,7 @@
                     reflect your brand. <span><a href="">Learn more</a></span>
                   </p>
                   <div class="btn-more visible">
-                    <button class="theme">Customize theme</button>
+                    <button class="theme" tabindex="0">Customize theme</button>
                   </div>
                 </div>
                 <div class="image visible">
@@ -336,8 +355,8 @@
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="radio">
+            <div class="card" tabindex="0">
+              <div class="radio" tabindex="0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -366,8 +385,18 @@
                     <span><a href="">Learn more</a></span>
                   </p>
                   <div class="btn-more hide visible">
-                    <button class="theme">Add product</button>
-                    <p>Import product</p>
+                    <button class="theme" tabindex="0">Add product</button>
+                    <p tabindex="0">
+                      <a
+                        href=""
+                        style="
+                          color: #323232;
+                          font-size: 12px;
+                          font-weight: 600;
+                        "
+                        >Import product</a
+                      >
+                    </p>
                   </div>
                 </div>
                 <div class="image hide visible">
@@ -378,8 +407,8 @@
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="radio">
+            <div class="card" tabindex="0">
+              <div class="radio" tabindex="0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -408,7 +437,7 @@
                     <span><a href="">Learn more</a></span>
                   </p>
                   <div class="btn-more hide visible">
-                    <button class="theme">Add domain</button>
+                    <button class="theme" tabindex="0">Add domain</button>
                   </div>
                 </div>
                 <div class="image hide visible">
@@ -419,8 +448,8 @@
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="radio">
+            <div class="card" tabindex="0">
+              <div class="radio" tabindex="0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -449,7 +478,7 @@
                     <span><a href="">Learn more</a></span>
                   </p>
                   <div class="btn-more hide visible">
-                    <button class="theme">Name store</button>
+                    <button class="theme" tabindex="0">Name store</button>
                   </div>
                 </div>
                 <div class="image hide visible">
@@ -460,8 +489,8 @@
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="radio">
+            <div class="card" tabindex="0">
+              <div class="radio" tabindex="0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -491,7 +520,7 @@
                     <span><a href="">Learn more</a></span>
                   </p>
                   <div class="btn-more hide visible">
-                    <button class="theme">Set up payment</button>
+                    <button class="theme" tabindex="0">Set up payment</button>
                   </div>
                 </div>
                 <div class="image hide visible">
