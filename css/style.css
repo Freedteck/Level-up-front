@@ -65,9 +65,17 @@ nav {
   border-color: #e1e1e1;
 }
 
-.search-bar:active,
-.search-bar:focus {
+.search-bar:active {
   border: 2px solid #ffffff;
+}
+
+.search-bar:focus {
+  outline: 2px solid #ffffff;
+}
+
+div:focus, p:focus {
+  outline: 2px solid #005bd3;
+
 }
 .profile {
   display: flex;
@@ -140,8 +148,7 @@ hr {
 .about:focus,
 .notification:focus {
   background-color: #656266;
-  box-shadow: 0px 0px 0px 3px #005bd3;
-  box-shadow: 0px 0px 0px 1px #000000;
+  outline: 2px solid #005bd3;
 }
 .noti-expand {
   width: 28%;
