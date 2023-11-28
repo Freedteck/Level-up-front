@@ -19,9 +19,14 @@ const tabIndex = document.querySelectorAll(`[tabindex="0"]`)
 const names = document.querySelector('.name')
 const short = document.querySelector('.short')
 const allMenuItem = document.querySelectorAll('.about-expand *')
+const allHidden = document.querySelectorAll('.card .hide')
 
 
 allMenuItem.forEach(item => {
+  item.style.display = 'none'
+})
+
+allHidden.forEach(item => {
   item.style.display = 'none'
 })
 function openMenu() {
