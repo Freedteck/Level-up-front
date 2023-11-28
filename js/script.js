@@ -1,6 +1,6 @@
 const noti = document.querySelector('.notification')
 const about = document.querySelector('.about')
-const aboutExpand = about.querySelector('.about-expand')
+const aboutExpand = document.querySelector('.about-expand')
 const arrow = document.querySelector('.arrow svg')
 const items = document.querySelector('.items')
 const notiExpand = document.querySelector('.noti-expand')
@@ -16,6 +16,8 @@ const cancelBtn = document.querySelector('.cancel')
 const info = document.querySelector('.info')
 const menuItem = document.querySelectorAll(`[role="menuitem"]`)
 const tabIndex = document.querySelectorAll(`[tabindex="0"]`)
+const names = document.querySelector('.name')
+const short = document.querySelector('.short')
 const allMenuItem = document.querySelectorAll('.about-expand *')
 
 
@@ -25,11 +27,17 @@ allMenuItem.forEach(item => {
 function openMenu() {
   aboutExpand.classList.toggle('show')
   about.ariaExpanded = 'true'
+  allMenuItem.forEach(item => {
+    item.style.display = 'flex'
+  })
 }
 
 function closeMenu() {
   about.ariaExpanded = 'false'
   aboutExpand.classList.remove('show')
+  allMenuItem.forEach(item => {
+    item.style.display = 'none'
+  })
 }
 
 function toggleMenu() {
@@ -62,7 +70,8 @@ cards.forEach((card, index) => {
 })
 
 let menuIndex = -1
-about.addEventListener('click', () => {
+about.addEventListener('click', (e) => {
+  console.log(e.target.classList);
   toggleMenu()
   about.blur()
 })
@@ -94,7 +103,7 @@ function keys() {
       winIndex++
 
       elementsWithTabIndex[winIndex].focus()
-      
+
     }
 
     if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' && about.ariaExpanded === 'true') {

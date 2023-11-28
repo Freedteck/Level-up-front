@@ -194,6 +194,7 @@ hr {
   flex-direction: column;
   color: black;
   width: 22%;
+  display: none;
   z-index: 1;
   top: 64px;
   right: 16px;
@@ -202,7 +203,6 @@ hr {
   border: 1px solid #dbdbdb;
   gap: 4px;
   box-shadow: 0px 4px 8px 0px #0000000d;
-  display: none;
 }
 
 .show {
