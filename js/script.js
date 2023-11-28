@@ -60,6 +60,8 @@ cancelBtn.addEventListener('click', () => {
 })
 cards.forEach((card, index) => {
   card.addEventListener('click', () => {
+    
+    
     cards.forEach(card => {
       card.classList.remove('active')
     })
